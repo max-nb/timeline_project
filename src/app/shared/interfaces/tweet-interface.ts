@@ -3,4 +3,6 @@ export interface Tweet {
     comment: string;
     img: string;
     date: string;
+    name: string;
+    user: string;
   }

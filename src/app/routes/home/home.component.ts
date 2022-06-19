@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   }
 
   postTweet(){
-    this.arrayTweets.push({id:this.arrayTweets.length+1, comment:this.tweetText, img:'asdfasdf', date:'asdfasdf'})
+    this.arrayTweets.push({id:this.arrayTweets.length+1, comment:this.tweetText, img:'./../../../assets/user.jpg', date:'asdfasdf', name:'Maximiliano', user: '@maxUser'})
 
     console.log(this.arrayTweets);
 
@@ -34,6 +34,10 @@ export class HomeComponent implements OnInit {
   }
   
 
-  deleteTweet(){}
+  deleteTweet(objTweet){
+    this.arrayTweets.forEach((element, index) => {
+      if(element==objTweet) this.arrayTweets.splice(index,1);
+   });
+  }
 
 }

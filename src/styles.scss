@@ -102,9 +102,6 @@ $md-warn: (
     )
 );
 
-
-$gray-color: #e2e2e4;
-$input-color: #86888b;
 $primary: mat-palette($md-primary, 500);
 $button-color : mat-palette($md-primary, 500);
 $accent:  mat-palette($md-accent, 200);
@@ -131,17 +128,9 @@ body {
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-
-.containter-content{
-  padding-left: 30em;
-  padding-right: 30em;
-}
-
-
 .mat-sidenav-container{
   height: 100%;
 }
-
 
 .ngx-pagination .current{
   background: $warn-color !important;

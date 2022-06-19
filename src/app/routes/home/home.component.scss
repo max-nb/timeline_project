@@ -35,3 +35,14 @@ img{
 .tweet-button{
     border-radius: 20px !important;
 }
+
+
+.container-tweet{
+    display: flex;
+}
+.fixed{
+    width: 60px;
+}
+.flex-item{
+    flex-grow: 1;
+}

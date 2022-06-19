@@ -1,4 +1,4 @@
-<div class="containter-content">
+<div class="container">
     <mat-card class="card-upload mat-elevation-z0">
 
         <mat-card-title-group>
@@ -38,9 +38,32 @@
 
     </mat-card>
     
-    <div class="col" *ngFor="let tweet of arrayTweets">
+    <div *ngFor="let tweet of arrayTweets">
         <mat-card class="mat-elevation-z0">
-            {{tweet.comment}}
+            <div class="row">
+                <div class="fixed">
+                    <img src="{{tweet.img}}">
+                </div>
+                <div class="col">
+                    <span>{{tweet.name}} </span>
+                    <span>{{tweet.user}}</span>
+                </div>
+                <div class="col">
+                    {{tweet.comment}}
+                </div>
+                <div>
+                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                      <mat-menu #menu="matMenu">
+                        <button (click)="deleteTweet(tweet)" mat-menu-item>
+                          <mat-icon class="material-icons-outlined">delete_outline</mat-icon>
+                          <span>Excluir</span>
+                        </button>
+                      </mat-menu>
+                </div>
+              </div>
+
         </mat-card>
     </div>
 
