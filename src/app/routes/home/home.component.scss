@@ -1,8 +1,9 @@
-.card-upload {
+mat-card {
     background-color: rgba(255, 255, 255, 0);
     border-left: 1px solid rgba(0, 0, 0, 0.205);
     border-right: 1px solid rgba(0, 0, 0, 0.205);
     border-bottom: 1px solid rgba(0, 0, 0, 0.205);
+    border-radius: 0px;
 }
 
 mat-card-title {
