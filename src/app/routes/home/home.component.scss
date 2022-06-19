@@ -1,14 +1,36 @@
-.card-upload{
+.card-upload {
     background-color: rgba(255, 255, 255, 0);
     border-left: 1px solid rgba(0, 0, 0, 0.205);
     border-right: 1px solid rgba(0, 0, 0, 0.205);
     border-bottom: 1px solid rgba(0, 0, 0, 0.205);
 }
 
-mat-card-title{
+mat-card-title {
     font-size: 20px;
 }
 
-mat-icon{
-   transform: scale(1);
+mat-icon {
+    transform: scale(1);
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+textarea {
+    resize: none;
+}
+
+mat-divider{
+    width: 10em;
+}
+
+img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.tweet-button{
+    border-radius: 20px !important;
 }

@@ -1,10 +1,51 @@
-<div  class="containter-content">
+<div class="containter-content">
     <mat-card class="card-upload mat-elevation-z0">
-      
+
         <mat-card-title-group>
             <mat-card-title>Página Inicial</mat-card-title>
             <mat-icon class="material-icons-outlined ">auto_awesome</mat-icon>
-          </mat-card-title-group>
-      
+        </mat-card-title-group>
+
+        <div class="row">
+            <div class="col-sm-1 mt-3">
+                <img src="./../../../assets/user.jpg">
+            </div>
+
+            <div class="col-sm-11 mt-4">
+                <mat-form-field style="resize: none;" class="example-full-width" appearance="none">
+                    <textarea cdkTextareaAutosize matInput placeholder="O que está acontecendo?"></textarea>
+                </mat-form-field>
+            </div>
+            <!-- 
+            <div class="col-12 mx-5">
+                <button mat-button>
+                    <mat-icon class="mr-3">public</mat-icon>Qualquer pessoa pode responder
+                </button>
+             
+            </div>
+
+         
+ -->
+
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <button mat-button>
+                    <mat-icon class="mr-3">public</mat-icon>Qualquer pessoa pode responder
+                </button>
+            </div>
+            <div class="col mt-3">
+                <mat-icon color="primary" class="material-icons-outlined">insert_photo</mat-icon>
+                <mat-icon color="primary" class="material-icons-outlined">gif_box</mat-icon>
+                <mat-icon color="primary" class="material-icons-outlined">leaderboard</mat-icon>
+                <mat-icon color="primary" class="material-icons-outlined">sentiment_satisfied</mat-icon>
+                <mat-icon color="primary" class="material-icons-outlined">pending_actions</mat-icon>
+            </div>
+            <div class="col mt-3 d-flex justify-content-end">
+                <button mat-raised-button class="tweet-button" color="primary">Tweetar</button>
+            </div>
+        </div>
+
     </mat-card>
 </div>
