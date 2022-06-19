@@ -1,0 +1,164 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+
+$md-primary: (
+  50 : #e3e4e4,
+  100 : #b9bbbd,
+  200 : #8b8d91,
+  300 : #5c5f64,
+  400 : #393d43,
+  500 : #161b22,
+  600 : #13181e,
+  700 : #101419,
+  800 : #0c1014,
+  900 : #06080c,
+  A100 : #5184ff,
+  A200 : #1e60ff,
+  A400 : #0044ea,
+  A700 : #003dd0,
+  contrast: (
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #ffffff,
+      400 : #ffffff,
+      500 : #ffffff,
+      600 : #ffffff,
+      700 : #ffffff,
+      800 : #ffffff,
+      900 : #ffffff,
+      A100 : #000000,
+      A200 : #ffffff,
+      A400 : #ffffff,
+      A700 : #ffffff,
+  )
+);
+
+
+$md-accent: (
+  50 : #e2e2e3,
+  100 : #b6b8b9,
+  200 : #86888b,
+  300 : #56585d,
+  400 : #31353a,
+  500 : #0d1117,
+  600 : #0b0f14,
+  700 : #090c11,
+  800 : #070a0d,
+  900 : #030507,
+  A100 : #4eb7ff,
+  A200 : #1ba3ff,
+  A400 : #0089e7,
+  A700 : #007ace,
+  contrast: (
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #ffffff,
+      400 : #ffffff,
+      500 : #ffffff,
+      600 : #ffffff,
+      700 : #ffffff,
+      800 : #ffffff,
+      900 : #ffffff,
+      A100 : #000000,
+      A200 : #000000,
+      A400 : #ffffff,
+      A700 : #ffffff,
+  )
+);
+
+$md-warn: (
+    50 : #e6f7f4,
+    100 : #c1ebe4,
+    200 : #98ddd2,
+    300 : #6ecfbf,
+    400 : #4fc5b2,
+    500 : #30bba4,
+    600 : #2bb59c,
+    700 : #24ac92,
+    800 : #1ea489,
+    900 : #139678,
+    A100 : #c9fff1,
+    A200 : #96ffe5,
+    A400 : #63ffd8,
+    A700 : #49ffd2,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+$gray-color: #e2e2e4;
+$input-color: #86888b;
+$primary: mat-palette($md-primary, 500);
+$button-color : mat-palette($md-primary, 500);
+$accent:  mat-palette($md-accent, 200);
+$warn:    mat-palette($md-warn, 500);
+$border-color: 0.1px solid rgba(241, 235, 235, 0.63);
+$background-itens: #0d1117;
+$warn-color: map-get($md-warn, 500);
+
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+
+.containter-content{
+  padding-left: 20em;
+  padding-right: 20em;
+}
+
+
+.mat-sidenav-container{
+  height: 100%;
+}
+
+
+.ngx-pagination .current{
+  background: $warn-color !important;
+}
+
+.ngx-pagination a{
+  color: white !important;
+}
+
+.cdk-global-overlay-wrapper, .cdk-overlay-container { z-index: 9999!important; } 
+
+
+textarea::-webkit-scrollbar-thumb {
+background-color: darkgrey;
+outline: 1px solid slategrey;
+}

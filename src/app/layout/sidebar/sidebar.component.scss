@@ -1,0 +1,18 @@
+mat-sidenav, mat-sidenav-content{
+    padding: 0px;
+    background-color: #090c11;
+}
+
+mat-list-item-content{
+    padding: 0;
+}
+
+mat-sidenav{
+    width: 50px;
+}
+
+:host ::ng-deep .mat-list-item-content { padding: 0.7em!important; }
+.icon-display {
+    transform: scale(1);
+    color: rgb(129, 129, 129);
+ }
