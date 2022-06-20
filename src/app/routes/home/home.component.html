@@ -13,7 +13,7 @@
 
             <div class="col-sm-11 mt-4">
                 <mat-form-field style="resize: none;" class="example-full-width" appearance="none">
-                    <textarea cdkTextareaAutosize matInput [(ngModel)]="tweetText" placeholder="O que está acontecendo?"></textarea>
+                    <textarea cdkTextareaAutosize matInput maxlength="130" [(ngModel)]="tweetText" (keydown)="decreaseProgressType($event)" placeholder="O que está acontecendo?"></textarea>
                 </mat-form-field>
             </div>
         </div>
@@ -32,6 +32,10 @@
                 <mat-icon color="primary" class="material-icons-outlined">pending_actions</mat-icon>
             </div>
             <div class="col mt-3 d-flex justify-content-end">
+              
+                <mat-progress-spinner class="spinner-position" *ngIf="typeCount<130 && tweetText" color="primary" [diameter]="25" [value]="progressBarCount"></mat-progress-spinner>
+                <mat-progress-spinner class="spinner-position" *ngIf="typeCount==130 && tweetText" color="warn" [diameter]="25" [value]="progressBarCount"></mat-progress-spinner>
+              
                 <button mat-raised-button [disabled]="!tweetText" class="tweet-button" (click)="postTweet()" color="primary">Tweetar</button>
             </div>
         </div>
