@@ -103,11 +103,8 @@ $md-warn: (
 );
 
 $primary: mat-palette($md-primary, 500);
-$button-color : mat-palette($md-primary, 500);
 $accent:  mat-palette($md-accent, 200);
 $warn:    mat-palette($md-warn, 500);
-$border-color: 0.1px solid rgba(241, 235, 235, 0.63);
-$background-itens: #0d1117;
 $warn-color: map-get($md-warn, 500);
 
 $theme: mat-light-theme($primary, $accent, $warn);
@@ -130,20 +127,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-sidenav-container{
   height: 100%;
-}
-
-.ngx-pagination .current{
-  background: $warn-color !important;
-}
-
-.ngx-pagination a{
-  color: white !important;
-}
-
-.cdk-global-overlay-wrapper, .cdk-overlay-container { z-index: 9999!important; } 
-
-
-textarea::-webkit-scrollbar-thumb {
-background-color: darkgrey;
-outline: 1px solid slategrey;
 }

@@ -12,6 +12,8 @@ mat-card-title {
 
 mat-icon {
     transform: scale(1);
+    font-weight: 50 !important;
+    font-size: 19px;
 }
 
 mat-form-field {
@@ -22,14 +24,12 @@ textarea {
     resize: none;
 }
 
-mat-divider{
-    width: 10em;
-}
 
 img{
     height: 50px;
     width: 50px;
     border-radius: 50%;
+    position: relative;
 }
 
 .tweet-button{
@@ -39,4 +39,63 @@ img{
 .spinner-position{
     top: 0.5em;
     left: -1em;
+}
+
+.fixed, .fixed-img-tweet{
+    width: 60px;
+}
+
+
+.button-permission{
+    padding-left: 0;
+}
+
+.button-options{
+    top: -1em;  
+}
+
+.tweet-size{
+    display: block;
+    width: 30em;
+    word-wrap: break-word;
+}
+
+.title-name{
+    font-weight:bold;
+}
+
+.title-username{
+    font-size: small;
+    color: gray;
+}
+
+.tweet-actions-container{
+    padding-left: 4em;
+    padding-right: 5em;
+}
+
+@media only screen  and (min-width: 300px) and (max-width: 800px){
+    .img-tweet{
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        position: relative;
+    }
+
+    .fixed-img-tweet{
+        width: 30px;
+        padding-left: 0;
+    }
+
+    .tweet-size{
+        display: block;
+        width: 17em;
+        word-wrap: break-word;
+    }
+
+    .tweet-actions-container{
+        padding-left: 2em;
+        padding-right: 5em;
+    }
+    
 }

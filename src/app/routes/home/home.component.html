@@ -3,28 +3,31 @@
 
         <mat-card-title-group>
             <mat-card-title>Página Inicial</mat-card-title>
-            <mat-icon class="material-icons-outlined ">auto_awesome</mat-icon>
+            <mat-icon class="material-icons-outlined md-18">auto_awesome</mat-icon>
         </mat-card-title-group>
-      
-        <div class="row">
-            <div class="col-sm-1 mt-3">
+
+        <mat-divider></mat-divider>
+
+        <div class="row mt-4">
+            <div class="fixed">
                 <img src="./../../../assets/user.jpg">
             </div>
 
-            <div class="col-sm-11 mt-4">
+            <div class="col">
                 <mat-form-field style="resize: none;" class="example-full-width" appearance="none">
-                    <textarea cdkTextareaAutosize matInput maxlength="130" [(ngModel)]="tweetText" (keydown)="decreaseProgressType($event)" placeholder="O que está acontecendo?"></textarea>
+                    <textarea cdkTextareaAutosize matInput maxlength="130" [(ngModel)]="tweetText"
+                        (keydown)="decreaseProgressType($event)" placeholder="O que está acontecendo?"></textarea>
                 </mat-form-field>
             </div>
         </div>
 
         <div class="row">
             <div class="col-12">
-                <button mat-button>
-                    <mat-icon class="mr-3">public</mat-icon>Qualquer pessoa pode responder
+                <button color="primary" class="button-permission" mat-button>
+                    <mat-icon class="mr-3" color="primary">public</mat-icon>Qualquer pessoa pode responder
                 </button>
             </div>
-            <div class="col mt-3">
+            <div class="col mt-4">
                 <mat-icon color="primary" class="material-icons-outlined">insert_photo</mat-icon>
                 <mat-icon color="primary" class="material-icons-outlined">gif_box</mat-icon>
                 <mat-icon color="primary" class="material-icons-outlined">leaderboard</mat-icon>
@@ -32,41 +35,60 @@
                 <mat-icon color="primary" class="material-icons-outlined">pending_actions</mat-icon>
             </div>
             <div class="col mt-3 d-flex justify-content-end">
-              
-                <mat-progress-spinner class="spinner-position" *ngIf="typeCount<130 && tweetText" color="primary" [diameter]="25" [value]="progressBarCount"></mat-progress-spinner>
-                <mat-progress-spinner class="spinner-position" *ngIf="typeCount==130 && tweetText" color="warn" [diameter]="25" [value]="progressBarCount"></mat-progress-spinner>
-              
-                <button mat-raised-button [disabled]="!tweetText" class="tweet-button" (click)="postTweet()" color="primary">Tweetar</button>
+
+                <mat-progress-spinner class="spinner-position" *ngIf="typeCount<130 && tweetText" color="primary"
+                    [diameter]="25" [value]="progressBarCount"></mat-progress-spinner>
+                <mat-progress-spinner class="spinner-position" *ngIf="typeCount==130 && tweetText" color="warn"
+                    [diameter]="25" [value]="progressBarCount"></mat-progress-spinner>
+
+                <button mat-raised-button [disabled]="!tweetText" class="tweet-button" (click)="postTweet()"
+                    color="primary">Tweetar</button>
             </div>
         </div>
 
     </mat-card>
-    
+
     <div *ngFor="let tweet of arrayTweets">
         <mat-card class="mat-elevation-z0">
             <div class="row">
-                <div class="fixed">
-                    <img src="{{tweet.img}}">
+                <div class="fixed-img-tweet">
+                    <img class="img-tweet" src="{{tweet.img}}">
                 </div>
                 <div class="col">
-                    <span>{{tweet.name}} </span>
-                    <span>{{tweet.user}}</span>
+                    <span class="title-name">{{tweet.name}} </span>
+                    <span class="title-username">{{tweet.user}}</span>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <span class="tweet-size">{{tweet.comment}}</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="col">
-                    {{tweet.comment}}
-                </div>
-                <div>
-                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                        <mat-icon>more_vert</mat-icon>
-                      </button>
-                      <mat-menu #menu="matMenu">
+                <div class="col d-flex justify-content-end">
+
+                    <button class="button-options" mat-icon-button [matMenuTriggerFor]="menu"
+                        aria-label="Example icon-button with a menu">
+                        <mat-icon>more_horiz</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
                         <button (click)="deleteTweet(tweet)" mat-menu-item>
-                          <mat-icon class="material-icons-outlined">delete_outline</mat-icon>
-                          <span>Excluir</span>
+                            <mat-icon class="material-icons-outlined">delete_outline</mat-icon>
+                            <span>Excluir</span>
                         </button>
-                      </mat-menu>
+                    </mat-menu>
                 </div>
-              </div>
+            </div>
+            <div class="tweet-actions-container">
+            <div class="row mt-3">
+                <div class="col d-flex justify-content-between">
+                    <mat-icon color="accent" class="material-icons-outlined">mode_comment</mat-icon>
+                    <mat-icon color="accent" class="material-icons-outlined">autorenew</mat-icon>
+                    <mat-icon color="accent" class="material-icons-outlined">favorite_border</mat-icon>
+                    <mat-icon color="accent" class="material-icons-outlined">file_upload</mat-icon>
+                    <mat-icon color="accent" class="material-icons-outlined">pending_actions</mat-icon>
+                </div>
+            </div>
+        </div>
 
         </mat-card>
     </div>
