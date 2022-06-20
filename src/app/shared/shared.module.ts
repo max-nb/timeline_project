@@ -40,8 +40,11 @@ import { RouterModule } from '@angular/router';
 import { NgxPaginationModule} from 'ngx-pagination';
 
 
+
 @NgModule({
-  declarations: [],
+  declarations: [
+  
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -118,7 +121,7 @@ import { NgxPaginationModule} from 'ngx-pagination';
     MatNativeDateModule,
     MatStepperModule,
     RouterModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   
   ]
 })

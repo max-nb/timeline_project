@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Tweet } from 'src/app/shared/interfaces/tweet-interface';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +19,7 @@ export class HomeComponent implements OnInit {
 
   progressBarCount = 0;
 
-  constructor(private fb: FormBuilder) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -30,9 +29,7 @@ export class HomeComponent implements OnInit {
   }
 
   postTweet() {
-    this.arrayTweets.push({ id: this.arrayTweets.length + 1, comment: this.tweetText, img: './../../../assets/user.jpg', date: 'asdfasdf', name: 'Maximiliano', user: '@maxUser' })
-
-    console.log(this.arrayTweets);
+    this.arrayTweets.push({ id: this.arrayTweets.length + 1, comment: this.tweetText, img: './../../../assets/user.jpg', name: 'Maximiliano', user: '@maxUser' })
 
     this.tweetText = '';
   }
@@ -51,7 +48,7 @@ export class HomeComponent implements OnInit {
     console.log(this.progressBarCount)
   }
 
-  decreaseProgressType(event) {
+  typeProgress(event) {
 
     if (event.keyCode == 8) {
 
@@ -59,7 +56,7 @@ export class HomeComponent implements OnInit {
 
       this.progressBarCount = this.progressBarCount - (100 / 130);
 
-    } else if (event.keyCode != 8 && this.typeCount < 130) {
+    } else if (event.keyCode != 8 && event.keyCode != 17 && this.typeCount < 130) {
       
       this.typeCount = this.typeCount + 1;
 
@@ -67,11 +64,32 @@ export class HomeComponent implements OnInit {
     }
 
     if (!this.tweetText) {
+
       this.progressBarCount = 0;
+
       this.typeCount = 0;
     }
 
   }
 
+  onPaste(event: ClipboardEvent) {  
+      
+    let textPaste = event.clipboardData.getData('text');
+
+      if((this.typeCount + textPaste.length) < 130){
+
+        this.typeCount += textPaste.length;
+
+        this.progressBarCount += textPaste.length * (100/130);
+
+      }else{
+        let rest = (130-this.typeCount);
+
+        this.typeCount += rest;
+
+        this.progressBarCount += rest * (100/130)
+      }
+   
+  }
 
 }

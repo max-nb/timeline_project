@@ -15,7 +15,7 @@
             <div class="col">
                 <mat-form-field style="resize: none;" class="example-full-width" appearance="none">
                     <textarea cdkTextareaAutosize matInput maxlength="130" [(ngModel)]="tweetText"
-                        (keydown)="decreaseProgressType($event)" placeholder="O que está acontecendo?"></textarea>
+                        (keydown)="typeProgress($event)" (paste)="onPaste($event)" placeholder="O que está acontecendo?"></textarea>
                 </mat-form-field>
             </div>
         </div>
