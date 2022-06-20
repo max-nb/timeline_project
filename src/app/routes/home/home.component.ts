@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Tweet } from 'src/app/shared/interfaces/tweet-interface';
+import { TweetServiceService } from 'src/app/shared/service/tweet-service.service';
 
 @Component({
   selector: 'app-home',
@@ -19,18 +20,19 @@ export class HomeComponent implements OnInit {
 
   progressBarCount = 0;
 
-  constructor() { }
+  constructor(private tweetService : TweetServiceService) { }
 
   ngOnInit(): void {
+    this.getAllTweets();
   }
 
   getAllTweets() {
-
+    this.arrayTweets = this.tweetService.getTweetList();
   }
 
   postTweet() {
     this.arrayTweets.push({ id: this.arrayTweets.length + 1, comment: this.tweetText, img: './../../../assets/user.jpg', name: 'Maximiliano', user: '@maxUser' })
-
+    this.tweetService.postTweetList(this.arrayTweets);
     this.tweetText = '';
   }
 
@@ -39,6 +41,8 @@ export class HomeComponent implements OnInit {
     this.arrayTweets.forEach((element, index) => {
       if (element == objTweet) this.arrayTweets.splice(index, 1);
     });
+
+    this.tweetService.postTweetList(this.arrayTweets);
   }
 
   increaseProgressType() {
