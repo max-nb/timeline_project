@@ -11,8 +11,6 @@ mat-card-title {
 }
 
 mat-icon {
-    transform: scale(1);
-    font-weight: 50 !important;
     font-size: 19px;
 }
 
@@ -23,7 +21,6 @@ mat-form-field {
 textarea {
     resize: none;
 }
-
 
 img{
     height: 50px;
@@ -42,7 +39,7 @@ img{
 }
 
 .fixed, .fixed-img-tweet{
-    width: 60px;
+    width: 61px;
 }
 
 
@@ -74,6 +71,13 @@ img{
     padding-right: 5em;
 }
 
+.header-icon{
+    transform: (-1, 1);
+}
+
+
+
+
 @media only screen  and (min-width: 300px) and (max-width: 800px){
     .img-tweet{
         height: 30px;
@@ -98,5 +102,15 @@ img{
         padding-right: 5em;
     }
    
+}
+
+@media only screen  and (min-width: 800px){
+    mat-card{
+        width: 50em;
+    }
+
+    .teste-footer{
+        padding-left: 4em;
+    }
 }
 

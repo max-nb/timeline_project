@@ -1,8 +1,8 @@
 <div class="container">
-    <mat-card class="card-upload mat-elevation-z0">
+    <mat-card class="mx-auto mat-elevation-z0">
         <mat-card-title-group>
             <mat-card-title>Página Inicial</mat-card-title>
-            <mat-icon class="material-icons-outlined md-18">auto_awesome</mat-icon>
+            <mat-icon class="material-icons-outlined header-icon">auto_awesome</mat-icon>
         </mat-card-title-group>
 
         <mat-divider></mat-divider>
@@ -12,20 +12,23 @@
                 <img src="./../../../assets/user.jpg">
             </div>
 
-            <div class="col">
+            <div class="col mx-1">
                 <mat-form-field style="resize: none;" class="example-full-width" appearance="none">
                     <textarea cdkTextareaAutosize matInput maxlength="130" [(ngModel)]="tweetText"
-                        (keydown)="typeProgress($event)" (paste)="onPaste($event)" placeholder="O que está acontecendo?"></textarea>
+                        (keydown)="typeProgress($event)" (ngModelChange)="clearProgress()" (paste)="onPaste($event)"
+                        placeholder="O que está acontecendo?"></textarea>
                 </mat-form-field>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row teste-footer">
             <div class="col-12">
                 <button color="primary" class="button-permission" mat-button>
                     <mat-icon class="mr-3" color="primary">public</mat-icon>Qualquer pessoa pode responder
                 </button>
             </div>
+
+            <mat-divider inset="true"></mat-divider>
             <div class="col mt-4">
                 <mat-icon color="primary" class="material-icons-outlined">insert_photo</mat-icon>
                 <mat-icon color="primary" class="material-icons-outlined">gif_box</mat-icon>
@@ -35,9 +38,9 @@
             </div>
             <div class="col mt-3 d-flex justify-content-end">
 
-                <mat-progress-spinner class="spinner-position" *ngIf="typeCount<130 && tweetText" color="primary"
+                <mat-progress-spinner class="spinner-position" *ngIf="tweetText?.length < 130" color="primary"
                     [diameter]="25" [value]="progressBarCount"></mat-progress-spinner>
-                <mat-progress-spinner class="spinner-position" *ngIf="typeCount==130 && tweetText" color="warn"
+                <mat-progress-spinner class="spinner-position" *ngIf="tweetText?.length == 130" color="warn"
                     [diameter]="25" [value]="progressBarCount"></mat-progress-spinner>
 
                 <button mat-raised-button [disabled]="!tweetText" class="tweet-button" (click)="postTweet()"
@@ -48,7 +51,7 @@
     </mat-card>
 
     <div *ngFor="let tweet of arrayTweets">
-        <mat-card class="mat-elevation-z0">
+        <mat-card class="mat-elevation-z0 mx-auto">
             <div class="row">
                 <div class="fixed-img-tweet">
                     <img class="img-tweet" src="{{tweet.img}}">
@@ -78,16 +81,16 @@
                 </div>
             </div>
             <div class="tweet-actions-container">
-            <div class="row mt-3">
-                <div class="col d-flex justify-content-between">
-                    <mat-icon color="accent" class="material-icons-outlined">mode_comment</mat-icon>
-                    <mat-icon color="accent" class="material-icons-outlined">autorenew</mat-icon>
-                    <mat-icon color="accent" class="material-icons-outlined">favorite_border</mat-icon>
-                    <mat-icon color="accent" class="material-icons-outlined">file_upload</mat-icon>
-                    <mat-icon color="accent" class="material-icons-outlined">pending_actions</mat-icon>
+                <div class="row mt-3">
+                    <div class="col d-flex justify-content-between">
+                        <mat-icon color="accent" class="material-icons-outlined">mode_comment</mat-icon>
+                        <mat-icon color="accent" class="material-icons-outlined">autorenew</mat-icon>
+                        <mat-icon color="accent" class="material-icons-outlined">favorite_border</mat-icon>
+                        <mat-icon color="accent" class="material-icons-outlined">file_upload</mat-icon>
+                        <mat-icon color="accent" class="material-icons-outlined">pending_actions</mat-icon>
+                    </div>
                 </div>
             </div>
-        </div>
 
         </mat-card>
     </div>
